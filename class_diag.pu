@@ -1,0 +1,35 @@
+@startuml
+class F16 {
+    +ROUNDS = 0
+    +RADIX = 2
+    +MANT_DIG = 5
+    +DIG
+    +MIN_EXP = -14
+    +MAX_EXP = 15
+    +MIN_10_EXP = -4
+    +MAX_10_EXP = 4
+    +MAX = 65504
+    +MIN = 6.1035156e-5
+
+    +FromFloat(var:float):F16
+    +FromDouble(double var):F16
+    +FromInt(var:int):F16
+    +FromUInt(var:unsigned int):F16
+    +FromLong(var:long):F16
+    +FromULong(var:unsigned long):F16
+    +ToFloat(var:F16):float
+    +ToDouble(var:F16):double
+    +ToInt(var:F16):int
+    +ToUInt(var:F16):unsigned int
+    +ToLong(var:F16):long
+    +ToULong(var:F16):unsigned long
+    +Add(lhs:F16, rhs:F16):F16
+    +Sub(lhs:F16, rhs:F16):F16
+    +Mul(lhs:F16, rhs:F16):F16
+    +Div(lhs:F16, rhs:F16):F16
+}
+class MathF16 {
+}
+
+F16 -- MathF16
+@enduml
