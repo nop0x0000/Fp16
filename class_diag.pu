@@ -31,11 +31,11 @@ class Fp16 {
     +Square(var:Fp16, time:signed char):Fp16
 
     -GetSign(var:Fp16):Fp16Sign
-    -SetSign(var:Fp16, sign:Fp16Sign)
+    -SetSign(var:Fp16, sign:Fp16Sign):Fp16Sign
     -GetExponent(var:Fp16):Fp16Exponent
-    -SetExponent(var:Fp16, exponent:Fp16Exponent)
-    -GetFraction(var:Fp16):Fp16Fraction)
-    -SetFraction(var:Fp16, fraction:Fp16Fraction)
+    -SetExponent(var:Fp16, exponent:Fp16Exponent):Fp16Exponent
+    -GetFraction(var:Fp16):Fp16Fraction
+    -SetFraction(var:Fp16, fraction:Fp16Fraction):Fp16Fraction
     -GetRightMostBit(var:Fp16):unsignd char
 }
 
