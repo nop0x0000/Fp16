@@ -1,0 +1,6 @@
+plantuml.jar
+*.png
+*.a
+*.o
+*.swp
+*.tmp
