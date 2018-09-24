@@ -1,5 +1,5 @@
 @startuml
-class F16 {
+class Fp16 {
     +ROUNDS = 0
     +RADIX = 2
     +MANT_DIG = 5
@@ -11,25 +11,48 @@ class F16 {
     +MAX = 65504
     +MIN = 6.1035156e-5
 
-    +FromFloat(var:float):F16
-    +FromDouble(double var):F16
-    +FromInt(var:int):F16
-    +FromUInt(var:unsigned int):F16
-    +FromLong(var:long):F16
-    +FromULong(var:unsigned long):F16
-    +ToFloat(var:F16):float
-    +ToDouble(var:F16):double
-    +ToInt(var:F16):int
-    +ToUInt(var:F16):unsigned int
-    +ToLong(var:F16):long
-    +ToULong(var:F16):unsigned long
-    +Add(lhs:F16, rhs:F16):F16
-    +Sub(lhs:F16, rhs:F16):F16
-    +Mul(lhs:F16, rhs:F16):F16
-    +Div(lhs:F16, rhs:F16):F16
-}
-class MathF16 {
+
+    +FromFloat(var:float):Fp16
+    +FromDouble(double var):Fp16
+    +FromInt(var:int):Fp16
+    +FromUInt(var:unsigned int):Fp16
+    +FromLong(var:long):Fp16
+    +FromULong(var:unsigned long):Fp16
+    +ToFloat(var:Fp16):float
+    +ToDouble(var:Fp16):double
+    +ToInt(var:Fp16):int
+    +ToUInt(var:Fp16):unsigned int
+    +ToLong(var:Fp16):long
+    +ToULong(var:Fp16):unsigned long
+    +Add(lhs:Fp16, rhs:Fp16):Fp16
+    +Sub(lhs:Fp16, rhs:Fp16):Fp16
+    +Mul(lhs:Fp16, rhs:Fp16):Fp16
+    +Div(lhs:Fp16, rhs:Fp16):Fp16
+    +Square(var:Fp16, time:signed char):Fp16
+
+    -GetSign(var:Fp16):Fp16Sign
+    -SetSign(var:Fp16, sign:Fp16Sign)
+    -GetExponent(var:Fp16):Fp16Exponent
+    -SetExponent(var:Fp16, exponent:Fp16Exponent)
+    -GetFraction(var:Fp16):Fp16Fraction)
+    -SetFraction(var:Fp16, fraction:Fp16Fraction)
+    -GetRightMostBit(var:Fp16):unsignd char
 }
 
-F16 -- MathF16
+enum Fp16Sign {
+    Positive
+    Negative
+}
+
+class Fp16Exponent
+
+class Fp16Fraction
+
+class MathFp16 {
+}
+
+Fp16 *-- Fp16Sign
+Fp16 *-- Fp16Exponent
+Fp16 *-- Fp16Fraction
+Fp16 -- MathFp16
 @enduml
