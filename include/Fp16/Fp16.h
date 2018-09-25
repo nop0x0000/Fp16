@@ -16,6 +16,7 @@ extern "C"
 #endif
 
 /* includes(system) {{{ */
+#include <limits.h>
 /* }}} */
 
 /* includes(user) {{{ */
@@ -28,15 +29,20 @@ extern "C"
 /* }}} */
 
 /* typedefs for basic types{{{ */
-typedef unsigned short Fp16;
+#if UCHAR_MAX >= 0xffff
+    typedef unsigned char Fp16;
+#elif USHRT_MAX >= 0xffff
+    typedef unsigned short Fp16;
+#elif UINT_MAX >= 0xffff
+    typedef unsigned int Fp16;
+#elif ULONG_MAX >= 0xffff
+    typedef unsigned long Fp16;
+#else
+    #error Not found 16bit type.
+#endif
 /* }}} */
 
 /* enum definitions by typedef{{{ */
-typedef enum {
-    Fp16_Sign_Positive,
-    Fp16_Sign_Negative
-} Fp16_Sign;
-
 /* }}} */
 
 /* struct / union definitions by typedef{{{ */
