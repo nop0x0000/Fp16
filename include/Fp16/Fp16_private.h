@@ -32,6 +32,10 @@ extern "C"
 /* }}} */
 
 /* enum definitions by typedef{{{ */
+typedef enum {
+    Fp16_Sign_Positive,
+    Fp16_Sign_Negative
+} Fp16_Sign;
 /* }}} */
 
 /* struct / union definitions by typedef{{{ */
@@ -39,7 +43,7 @@ extern "C"
 
 /* extern variable declarations{{{ */
 extern Fp16 (*Fp16_SetSign)(Fp16 var, Fp16_Sign sign);
-
+extern Fp16_Sign (*Fp16_GetSign)(Fp16 var);
 /* }}} */
 
 /* function prototypes {{{ */

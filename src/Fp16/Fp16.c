@@ -34,10 +34,12 @@
 
 /* static funcsion prototypes {{{ */
 static Fp16 SetSign(Fp16 var, Fp16_Sign sign);
+static Fp16_Sign GetSign(Fp16 var);
 /* }}} */
 
 /* variable declarations {{{ */
 Fp16 (*Fp16_SetSign)(Fp16 var, Fp16_Sign sign) = SetSign;
+Fp16_Sign (*Fp16_GetSign)(Fp16 var) = GetSign;
 /* }}} */
 
 /* functions {{{ */
@@ -46,10 +48,10 @@ static Fp16 SetSign(Fp16 var, Fp16_Sign sign)
     return (sign == Fp16_Sign_Positive) ? (var & 0x7fff) : (var | 0x8000);
 }
 
-// static Fp16_Sign GetSign(Fp16 var)
-// {
-//     return (var & 0x8000) ? (Fp16_Sign_Negative) : (Fp16_Sign_Positive);
-// }
+static Fp16_Sign GetSign(Fp16 var)
+{
+    return (var & 0x8000) ? (Fp16_Sign_Negative) : (Fp16_Sign_Positive);
+}
 
 void Fp16_Create(void)
 {

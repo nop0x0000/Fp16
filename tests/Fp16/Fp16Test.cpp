@@ -28,6 +28,24 @@ TEST(Fp16, SetSign)
     BITS_EQUAL(0xffff, var, 0x8000);
 }
 
+TEST(Fp16, GetSign)
+{
+    Fp16 var = 0;
+    Fp16_Sign sign;
+    // Set negative
+    var = Fp16_SetSign(var, Fp16_Sign_Positive);
+    sign = Fp16_GetSign(var);
+    CHECK_EQUAL(Fp16_Sign_Positive, sign);
+    // Set positive
+    var = Fp16_SetSign(var, Fp16_Sign_Negative);
+    sign = Fp16_GetSign(var);
+    CHECK_EQUAL(Fp16_Sign_Negative, sign);
+    // Set negative
+    var = Fp16_SetSign(var, Fp16_Sign_Positive);
+    sign = Fp16_GetSign(var);
+    CHECK_EQUAL(Fp16_Sign_Positive, sign);
+}
+
 IGNORE_TEST(Fp16, Create)
 {
   FAIL("Start here");
